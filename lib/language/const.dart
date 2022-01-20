@@ -1,0 +1,15 @@
+const String hello = 'hello';
+const String home = 'home';
+const String vn = 'vn';
+const String en = 'en';
+const String lang = 'lang';
+const String logOut = 'logOut';
+const String email = 'email';
+const String password = 'password';
+const String confirmPassword = 'confirm_password';
+const String signIn = 'signIn';
+const String signUp = 'signUp';
+const String haveAccount = 'haveAccount';
+const String notAccount = 'notAccount';
+const String cancel = 'cancel';
+const String notice = 'notice';

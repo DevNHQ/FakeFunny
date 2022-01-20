@@ -1,0 +1,17 @@
+const Map<String, String> en = {
+  'home' : 'Home',
+  'vn' : 'Vietnamese',
+  'en' : 'English',
+  'lang' : 'Language',
+  'signIn': 'Sign In',
+  'signUp': 'Sign Up',
+  'logOut': 'Log Out',
+  'email': 'Email',
+  'password': 'Password',
+  'confirm_password': 'Confirm password',
+  'haveAccount': 'Do you already have an account?',
+  'notAccount': 'Do not have an account?',
+  'multipleLanguage' : 'Multiple language',
+  'cancel' : 'Cancel',
+  'notice' : 'Notice',
+};
