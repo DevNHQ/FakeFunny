@@ -6,15 +6,20 @@ class CustomInput extends StatelessWidget {
   final String? errMessage;
   final String? hint;
   final String? title;
+  final double? width;
   final int maxLines;
   final bool activeObscureText;
   final Function onChanged;
+  final TextInputType textInputType;
+
   const CustomInput({
     Key? key,
     this.label,
     this.errMessage,
+    this.textInputType = TextInputType.multiline,
     this.title,
     this.maxLines = 1,
+    this.width,
     this.hint,
     this.activeObscureText = false,
     required this.onChanged,
@@ -42,6 +47,7 @@ class CustomInput extends StatelessWidget {
         Container(
           height: maxLines > 1 ? maxLines.toDouble() * 45.0 : 45.0,
           alignment: Alignment.centerLeft,
+          width: width,
           padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 10.0, bottom: 12.0),
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(appBorder)),
@@ -62,7 +68,7 @@ class CustomInput extends StatelessWidget {
             expands: maxLines > 1 ? true : false,
             maxLines: maxLines > 1 ? null : maxLines,
             style: size14W500Default,
-            keyboardType: TextInputType.multiline,
+            keyboardType: textInputType,
             onChanged: (value) => onChanged(value),
             obscureText: activeObscureText ,
             decoration: InputDecoration.collapsed(

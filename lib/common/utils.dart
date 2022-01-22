@@ -1,7 +1,16 @@
+import 'dart:io';
+
 import 'package:fake_funny/common/styles.dart';
 import 'package:fake_funny/language/const.dart';
+import 'package:fake_funny/library/FlutterResizeImage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+dynamic resizeWidth(File file) async{
+  ImageProperties properties = await FlutterResizeImage.getImageProperties(file.path);
+  File compressedFile = await FlutterResizeImage.compressImage(file.path, quality: 100,targetWidth:properties.width! > 550 ? 550 : properties.width!,targetHeight:properties.width! > 550 ? (properties.height! * 550 / properties.width!).round() : properties.height!);
+  return compressedFile;
+}
 
 bool validateEmail(String value) {
   RegExp regex = RegExp(r'^[^@]+@[^@]+\.[^@]+');

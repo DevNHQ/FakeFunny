@@ -1,5 +1,6 @@
 const String hello = 'hello';
 const String home = 'home';
+const String profile = 'profile';
 const String vn = 'vn';
 const String en = 'en';
 const String lang = 'lang';

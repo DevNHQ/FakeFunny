@@ -14,4 +14,5 @@ const Map<String, String> en = {
   'multipleLanguage' : 'Multiple language',
   'cancel' : 'Cancel',
   'notice' : 'Notice',
+  'profile' : 'Profile',
 };

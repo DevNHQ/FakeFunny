@@ -5,12 +5,12 @@ class CustomImage extends StatelessWidget {
     Key? key,
     this.imageRatio = 1.618,
     this.placeholder,
-    this.image,
+    required this.image,
     this.height,
     this.fit,
     required this.width,
   }) : super(key: key);
-  final String? image;
+  final String image;
   final double width;
   final double? height;
   final double imageRatio;
@@ -20,7 +20,7 @@ class CustomImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FadeInImage.assetNetwork(
-      image: image!,
+      image: image,
       placeholder: placeholder ?? 'assets/images/placeholder.jpg',
       width: width,
       height: height ?? width,

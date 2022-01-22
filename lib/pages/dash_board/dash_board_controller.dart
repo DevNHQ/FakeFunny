@@ -1,10 +1,12 @@
 import 'package:fake_funny/common/constants.dart';
 import 'package:fake_funny/common/storage_manager.dart';
 import 'package:fake_funny/data/country.dart';
+import 'package:fake_funny/language/const.dart';
 import 'package:fake_funny/localization_service.dart';
 import 'package:fake_funny/model/m_country.dart';
 import 'package:fake_funny/model/m_left_menu.dart';
 import 'package:fake_funny/pages/home/home_page.dart';
+import 'package:fake_funny/pages/profile/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,7 +20,7 @@ class DashBoardController extends GetxController with GetTickerProviderStateMixi
     const HomePage(),
     const HomePage(),
     const HomePage(),
-    const HomePage(),
+    const ProfilePage(),
   ];
   bool isCollapsed = true;
   final Duration duration = const Duration(milliseconds: 300);
@@ -89,6 +91,18 @@ class DashBoardController extends GetxController with GetTickerProviderStateMixi
     }
     isCollapsed = !isCollapsed;
     update();
+  }
+  appbarTitle () {
+    switch (currentIndex.value) {
+      case 0:
+      case 1:
+      case 2:
+        return home.tr;
+      case 3:
+        return profile.tr;
+      default:
+        return '';
+    }
   }
   Widget customIcon({index, icon,showBadge,title}) {
     return SizedBox(

@@ -14,4 +14,5 @@ const Map<String, String> vi = {
   'multipleLanguage' : 'Đa ngôn ngữ',
   'cancel' : 'Hủy bỏ',
   'notice' : 'Thông báo',
+  'profile' : 'Trang cá nhân',
 };

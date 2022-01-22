@@ -1,8 +1,10 @@
 import 'package:fake_funny/common/styles.dart';
 import 'package:fake_funny/components/custom_appbar.dart';
+import 'package:fake_funny/components/custom_icon.dart';
 import 'package:fake_funny/components/custom_image.dart';
 import 'package:fake_funny/language/const.dart';
 import 'package:fake_funny/pages/dash_board/dash_board_controller.dart';
+import 'package:fake_funny/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../localization_service.dart';
@@ -28,9 +30,17 @@ class _DashboardPageState extends State<DashboardPage> {
       return Scaffold(
           resizeToAvoidBottomInset: false,
           appBar: CustomAppBar(
-            title: home.tr,
+            title: controller.appbarTitle(),
             leadingIcon: controller.isCollapsed ? Icons.view_headline_outlined : Icons.clear_outlined,
             onLeadingAction: () => controller.switchAction(),
+            actions: [
+              CustomIcon(
+                  icon: Icons.add,
+                  alignment: Alignment.centerRight,
+                  onPressed: () => Get.toNamed(AppRoutes.postOptions),
+              ),
+              CustomIcon(icon: Icons.mark_email_unread_sharp),
+            ],
           ),
           body: Stack(
             children: [
