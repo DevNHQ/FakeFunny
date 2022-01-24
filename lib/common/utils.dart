@@ -11,6 +11,25 @@ dynamic resizeWidth(File file) async{
   File compressedFile = await FlutterResizeImage.compressImage(file.path, quality: 100,targetWidth:properties.width! > 550 ? 550 : properties.width!,targetHeight:properties.width! > 550 ? (properties.height! * 550 / properties.width!).round() : properties.height!);
   return compressedFile;
 }
+dynamic parserCount({value}) {
+  if (value < 10000) {
+    return value.toString();
+  } else if (value >= 10000 && value < 100000) {
+    return value.toString().substring(0, 2) + "." + value.toString().substring(2, 3) + "K" ;
+  } else if (value >= 100000 && value < 1000000) {
+    return value.toString().substring(0, 3) + "." + value.toString().substring(3, 4) + "K" ;
+  } else if (value >= 1000000 && value < 10000000) {
+    return value.toString().substring(0, 1) + "." + value.toString().substring(1, 2) + "T" ;
+  } else if (value >= 10000000 && value < 100000000) {
+    return value.toString().substring(0, 2) + "." + value.toString().substring(2, 3) + "T" ;
+  } else if (value >= 100000000 && value < 1000000000) {
+    return value.toString().substring(0, 3) + "." + value.toString().substring(3, 4) + "T" ;
+  } else if (value >= 1000000000 && value < 10000000000) {
+    return value.toString().substring(0, 1) + "." + value.toString().substring(1, 2) + "B" ;
+  } else if (value >= 10000000000 && value < 100000000000) {
+    return value.toString().substring(0, 2) + "." + value.toString().substring(2, 3) + "B" ;
+  }
+}
 
 bool validateEmail(String value) {
   RegExp regex = RegExp(r'^[^@]+@[^@]+\.[^@]+');

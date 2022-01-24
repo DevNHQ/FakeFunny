@@ -2,38 +2,42 @@ import 'dart:typed_data';
 
 class MUser {
   int? id;
-  late String name;
-  late Uint8List avatarFile;
-  late int followed;
+  late String? name;
+  late String? idName;
+  late Uint8List? avatarFile;
+  late int follower;
   late int following;
-  late int countPost;
+  late int totalLike;
 
   MUser({
     this.id,
-    required this.name,
-    required this.avatarFile,
-    this.followed = 0,
+    this.name,
+    this.idName,
+    this.avatarFile,
+    this.follower = 0,
     this.following = 0,
-    this.countPost = 0,
+    this.totalLike = 0,
   });
 
   Map<String, dynamic> toMap() {
     var data = <String, dynamic>{
       "id": id,
-      "avatarFile": avatarFile,
-      "countPost": countPost,
       "name": name,
-      "followed": followed,
+      "idName": idName,
+      "avatarFile": avatarFile,
+      "follower": follower,
       "following": following,
+      "totalLike": totalLike,
     };
     return data;
   }
   MUser.fromMap(Map<String, dynamic> data) {
     id = data['id'];
     name = data['name'];
+    idName = data['idName'];
     avatarFile = data['avatarFile'];
-    countPost = data['countPost'];
-    followed = data['followed'];
+    totalLike = data['totalLike'];
+    follower = data['follower'];
     following = data['following'];
   }
 }

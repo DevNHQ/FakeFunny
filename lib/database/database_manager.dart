@@ -31,17 +31,18 @@ class DataBaseManager {
     await db.execute("CREATE TABLE IF NOT EXISTS user ("
         "id INTEGER PRIMARY KEY AUTOINCREMENT,"
         "name TEXT,"
+        "idName TEXT,"
         "avatarFile BLOB,"
-        "followed INTEGER,"
+        "follower INTEGER,"
         "following INTEGER,"
-        "countPost INTEGER"
+        "totalLike INTEGER"
         ")");
 
   }
   Future<MUser> addUser(MUser user) async {
     var dbClient = await db;
     if(dbClient != null) {
-      user.id = await dbClient!.insert('user', user.toMap());
+      user.id = await dbClient.insert('user', user.toMap());
     }
     return user;
   }
@@ -53,20 +54,22 @@ class DataBaseManager {
       List<Map<String, dynamic>> maps = await dbClient.query('user', columns: [
         'id',
         'name',
+        'idName',
         'avatarFile',
-        'followed',
+        'follower',
         'following',
-        'countPost'
+        'totalLike'
       ]);
       if (maps.isNotEmpty) {
         user.addAll(maps.map((data) => MUser.fromMap(data)).toList());
       }
     }
+    print(user);
     return user;
   }
-  Future<int?> removeUser() async {
+  Future<int?> removeUser({id}) async {
     var dbClient = await db;
-    return await dbClient?.delete('user');
+    return await dbClient?.delete('user', where: 'id = $id');
   }
   Future<int?> updateUser({required MUser user, required int id}) async {
     var dbClient = await db;

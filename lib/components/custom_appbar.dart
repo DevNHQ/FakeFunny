@@ -17,7 +17,7 @@ class CustomAppBar extends AppBar {
     Color? appBarColor,
     dynamic leadingIcon,
   }) : super(key: key,
-    title: Text(title ?? '', style: appbarStyle),
+    title: widgetTitle ?? Text(title ?? '', style: appbarStyle),
     automaticallyImplyLeading: automaticallyImplyLeading,
     backgroundColor:  appBarColor ?? appbarColor,
     leading: showBackIcon ?  CustomIcon(

@@ -31,6 +31,7 @@ class _DashboardPageState extends State<DashboardPage> {
           resizeToAvoidBottomInset: false,
           appBar: CustomAppBar(
             title: controller.appbarTitle(),
+            widgetTitle: controller.profileTitle(),
             leadingIcon: controller.isCollapsed ? Icons.view_headline_outlined : Icons.clear_outlined,
             onLeadingAction: () => controller.switchAction(),
             actions: [

@@ -2,7 +2,7 @@ import 'package:fake_funny/common/styles.dart';
 import 'package:flutter/material.dart';
 // ignore: must_be_immutable
 class CustomInput extends StatelessWidget {
-  final String? label;
+  final TextEditingController? controller;
   final String? errMessage;
   final String? hint;
   final String? title;
@@ -14,9 +14,9 @@ class CustomInput extends StatelessWidget {
 
   const CustomInput({
     Key? key,
-    this.label,
+    this.controller,
     this.errMessage,
-    this.textInputType = TextInputType.multiline,
+    this.textInputType = TextInputType.none,
     this.title,
     this.maxLines = 1,
     this.width,
@@ -64,6 +64,7 @@ class CustomInput extends StatelessWidget {
           child: TextField(
             readOnly: false,
             autofocus: false,
+            controller: controller,
             textAlignVertical: TextAlignVertical.top,
             expands: maxLines > 1 ? true : false,
             maxLines: maxLines > 1 ? null : maxLines,

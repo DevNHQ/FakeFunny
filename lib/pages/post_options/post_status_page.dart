@@ -29,7 +29,7 @@ class PostOptionsPage extends StatelessWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
                   return InkWell(
-                    onTap: () => Get.toNamed(AppRoutes.postStatus),
+                    onTap: () => Get.toNamed(AppRoutes.addAccount),
                     child: Container(
                       padding: const EdgeInsets.all(16.0),
                       margin: EdgeInsets.only(top: index != 0 ? 16.0 : 0.0),

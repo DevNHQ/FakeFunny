@@ -1,8 +1,11 @@
 import 'dart:async';
 import 'package:fake_funny/common/styles.dart';
+import 'package:fake_funny/common/utils.dart';
 import 'package:fake_funny/components/custom_appbar.dart';
 import 'package:fake_funny/components/custom_tabbar.dart';
+import 'package:fake_funny/language/const.dart';
 import 'package:fake_funny/pages/profile/profile_controller.dart';
+import 'package:fake_funny/routes/app_routes.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -25,47 +28,52 @@ class ProfilePage extends GetView<ProfileController> {
                     brightness: Brightness.light,
                     elevation:2,
                     flexibleSpace: FlexibleSpaceBar(
-                      background: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          const SizedBox(height: 16.0),
-                          const ClipRRect(
-                            borderRadius: BorderRadius.all(Radius.circular(100.0)),
-                            // child: CachedNetworkImage(
-                            //   imageUrl: noImage1,
-                            //   placeholder: (context, url) =>  Image.asset('assets/images/placeholder.png',fit: BoxFit.cover,width: MediaQuery.of(context).size.width),
-                            //   errorWidget: (context, url, error) => Image.asset('assets/images/placeholder.png',fit: BoxFit.cover,width: MediaQuery.of(context).size.width),
-                            //   fit: BoxFit.cover,
-                            //   width: 125.0,
-                            //   height: 125.0,
-                            // ),
-                          ),
-                          const SizedBox(height: 10.0),
-                          Text("Nguyen Hong Quang",style: size16W700Default),
-                          const SizedBox(height: 25.0),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      background: GetBuilder<ProfileController>(builder: (controller) {
+                          return Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              const SizedBox(width: 16.0),
-                              customBox(title: 'Const.post',value: "5"),
-                              const Text("|",style:  TextStyle(color: Colors.grey)),
-                              customBox(title: 'Const.following',value: "1"),
-                              const Text("|",style: TextStyle(color: Colors.grey)),
-                              customBox(title: 'Const.followed',value: "1.5m"),
-                              const SizedBox(width: 16.0),
+                              const SizedBox(height: 16.0),
+                              ClipRRect(
+                                borderRadius: const BorderRadius.all(Radius.circular(100.0)),
+                                child: controller.user.avatarFile != null ? Image.memory(
+                                  controller.user.avatarFile!,
+                                  fit: BoxFit.cover,
+                                  width: 125.0,
+                                  height: 125.0,
+                                ) : Image.asset(
+                                  'assets/images/placeholder.jpg',
+                                  fit: BoxFit.cover,
+                                  width: 125.0,
+                                  height: 125.0,
+                                ),
+                              ),
+                              const SizedBox(height: 10.0),
+                              Text(controller.user.idName != null ? controller.user.idName! : '@id',style: size16W700Default),
+                              const SizedBox(height: 25.0),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: [
+                                  const SizedBox(width: 16.0),
+                                  customBox(title: following.tr ,value: parserCount(value: controller.user.totalLike)),
+                                  Text("|",style:  size10W400Hint),
+                                  customBox(title: followers.tr ,value: parserCount(value: controller.user.follower)),
+                                  Text("|",style: size10W400Hint),
+                                  customBox(title: like.tr ,value: parserCount(value: controller.user.following)),
+                                  const SizedBox(width: 16.0),
+                                ],
+                              ),
+                              const SizedBox(height: 20.0),
+                              InkWell(
+                                  onTap: () => Get.toNamed(AppRoutes.addAccount, arguments: controller.user),
+                                  child: Text(
+                                    editProfile.tr,
+                                    style: size12W500Default,
+                                  )
+                              ),
                             ],
-                          ),
-                          const SizedBox(height: 20.0),
-                          InkWell(
-                              onTap: (){
-
-                              },
-                              child: Text("Chỉnh sửa hồ sơ",
-                                  style: size12W500Default,
-                              )
-                          ),
-                        ],
+                          );
+                        },
                       ),
                     ),
                     centerTitle: true,
@@ -103,9 +111,9 @@ class ProfilePage extends GetView<ProfileController> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(value,style: size12W500Default),
+        Text(value,style: size14W500Default),
         const SizedBox(height: 5.0),
-        Text(title,style: size12W500Default),
+        Text(title,style: size12W500Hint),
       ],
     );
   }

@@ -15,4 +15,16 @@ const Map<String, String> vi = {
   'cancel' : 'Hủy bỏ',
   'notice' : 'Thông báo',
   'profile' : 'Trang cá nhân',
+  'addAccount' : 'Thêm tài khoản',
+  'switchAcc' : 'Chuyển đổi tài khoản',
+  'name' : 'Họ tên',
+  'avatar' : 'Ảnh đại diện',
+  'nameId' : 'Id',
+  'like' : 'Thích',
+  'followers' : 'Followers',
+  'following' : 'Đang Follow',
+  'totalLike' : 'Tổng lượt thích',
+  'editProfile' : 'Chỉnh sửa hồ sơ',
+  'deleteProfile' : 'Xoá hồ sơ',
+
 };

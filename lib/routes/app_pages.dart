@@ -3,9 +3,9 @@ import 'package:fake_funny/pages/dash_board/dash_board_page.dart';
 import 'package:fake_funny/pages/language/language_binding.dart';
 import 'package:fake_funny/pages/language/language_page.dart';
 import 'package:fake_funny/pages/post_options/post_status_page.dart';
-import 'package:fake_funny/pages/post_status/post_status_binding.dart';
-import 'package:fake_funny/pages/post_status/post_status_controller.dart';
-import 'package:fake_funny/pages/post_status/post_status_page.dart';
+import 'package:fake_funny/pages/post_status/add_account_binding.dart';
+import 'package:fake_funny/pages/post_status/add_account_controller.dart';
+import 'package:fake_funny/pages/post_status/add_account_page.dart';
 import 'package:fake_funny/pages/profile/profile_controller.dart';
 import 'package:fake_funny/pages/profile/profile_page.dart';
 import 'package:fake_funny/pages/splash/splash_binding.dart';
@@ -45,9 +45,9 @@ class AppPages {
       transitionDuration: const  Duration(milliseconds: duration),
     ),
     GetPage(
-      name: AppRoutes.postStatus,
-      page: () => const PostStatusPage(),
-      binding: PostStatusBinding(),
+      name: AppRoutes.addAccount,
+      page: () => const AddAccountPage(),
+      binding: AddAccountBinding(),
       transition: Transition.topLevel,
       transitionDuration: const  Duration(milliseconds: duration),
     ),

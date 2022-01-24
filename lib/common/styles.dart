@@ -14,6 +14,7 @@ const w800 = FontWeight.w800;
 const w900 = FontWeight.w900;
 const baseAppColor = Color(0xFFF50707);
 const defaultColor = Color(0xFF000000);
+const hintColor = Color(0xFFBFBFBF);
 const whiteColor = Color(0xFFFFFFFF);
 const backgroundColor = Color(0xFFFFFFFF);
 const appbarColor = Color(0xFFFFFFFF);
@@ -138,4 +139,20 @@ var size14W500White = GoogleFonts.getFont(
     fontWeight: w500,
   ),
 );
-//           WhiteColor Text           //
+//           Hint Text           //
+var size12W500Hint = GoogleFonts.getFont(
+  font,
+  textStyle: const TextStyle(
+    color: hintColor,
+    fontSize: 12,
+    fontWeight: w500,
+  ),
+);
+var size10W400Hint = GoogleFonts.getFont(
+  font,
+  textStyle: const TextStyle(
+    color: hintColor,
+    fontSize: 10,
+    fontWeight: w400,
+  ),
+);
