@@ -1,5 +1,6 @@
 import 'package:fake_funny/common/styles.dart';
 import 'package:fake_funny/components/custom_icon.dart';
+import 'package:fake_funny/components/custom_image_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 class CustomAppBar extends AppBar {
@@ -20,8 +21,8 @@ class CustomAppBar extends AppBar {
     title: widgetTitle ?? Text(title ?? '', style: appbarStyle),
     automaticallyImplyLeading: automaticallyImplyLeading,
     backgroundColor:  appBarColor ?? appbarColor,
-    leading: showBackIcon ?  CustomIcon(
-      icon: leadingIcon ?? Icons.arrow_back_rounded,
+    leading: showBackIcon ?  CustomImageIcon(
+      icon: leadingIcon ?? 'assets/icons/back.png',
       iconColor: defaultColor,
       onPressed: onLeadingAction ?? () => Get.back(),
     ): null,

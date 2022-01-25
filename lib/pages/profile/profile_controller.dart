@@ -17,7 +17,7 @@ class ProfileController extends GetxController with GetTickerProviderStateMixin{
   int? currentUser;
   @override
   void onInit() {
-    tabController = TabController(vsync: this, length: 2);
+    tabController = TabController(vsync: this, length: 3);
     initTab();
     initData(isAdd: false);
     super.onInit();
@@ -41,18 +41,19 @@ class ProfileController extends GetxController with GetTickerProviderStateMixin{
     update();
   }
   initTab(){
-    tabs.add(customTab(Icons.image,Get.width / 2));
-    tabs.add(customTab(Icons.watch_later_sharp,Get.width / 2));
+    tabs.add(customTab('assets/icons/my_post.png'));
+    tabs.add(customTab('assets/icons/heart_lock.png'));
+    tabs.add(customTab('assets/icons/lock.png'));
+    tabBody.add(const MyAlBumPage());
     tabBody.add(const MyAlBumPage());
     tabBody.add(const MyAlBumPage());
   }
 }
-dynamic customTab(icon,width) {
+dynamic customTab(icon) {
   return Tab(
-      child: Container(
-        width: width,
+      child: Align(
         alignment: Alignment.center,
-        child: Icon(icon),
+        child: Image.asset(icon, width: 24.0, height: 24.0,),
       )
   );
 }

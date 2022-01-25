@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 class CustomTabBar extends Container implements PreferredSizeWidget {
   CustomTabBar({Key? key, this.color, required this.tabBar}) : super(key: key);
 
@@ -12,12 +11,12 @@ class CustomTabBar extends Container implements PreferredSizeWidget {
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
         color: color,
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.0),
-            blurRadius: 0.5,
-            spreadRadius: 0.0,
-            offset: const Offset(1, -1), // shadow direction: bottom right
+            color: Color(0xFFEBEBEB),
+            blurRadius: 1,
+            spreadRadius: 0.5,
+            offset: Offset(0, 0), // shadow direction: bottom right
           )
         ],
       ),

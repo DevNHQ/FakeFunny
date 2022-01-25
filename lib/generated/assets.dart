@@ -4,6 +4,8 @@ class Assets {
 
   static const String iconsAddUser = 'assets/icons/add_user.png';
   static const String iconsArrowDown = 'assets/icons/arrow_down.png';
+  static const String iconsBack = 'assets/icons/back.png';
+  static const String iconsBookmark = 'assets/icons/bookmark.png';
   static const String iconsDiscover = 'assets/icons/discover.png';
   static const String iconsFff = 'assets/icons/fff.png';
   static const String iconsHeartLock = 'assets/icons/heart_lock.png';

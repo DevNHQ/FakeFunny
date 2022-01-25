@@ -1,3 +1,4 @@
+import 'package:fake_funny/common/styles.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
@@ -27,7 +28,7 @@ class CustomImageIcon extends StatelessWidget {
         onPressed: onPressed ?? onPressed,
         child: Image.asset(
             icon,
-            color: iconColor ?? iconColor,
+            color: iconColor ?? defaultColor,
             width: 24.0,
             height: 24.0,
         ),

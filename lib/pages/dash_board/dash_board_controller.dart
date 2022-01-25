@@ -77,6 +77,18 @@ class DashBoardController extends GetxController with GetTickerProviderStateMixi
         return [];
     }
   }
+  String? leadingIcon () {
+    switch (currentIndex.value) {
+      case 0:
+      case 1:
+      case 2:
+        return null;
+      case 3:
+        return  'assets/icons/add_user.png';
+      default:
+        return null;
+    }
+  }
   List<Widget>? actionWidget () {
     switch (currentIndex.value) {
       case 0:
@@ -338,7 +350,7 @@ class DashBoardController extends GetxController with GetTickerProviderStateMixi
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(user.idName!, style: size14W500Default),
-                Text(user.name!, style: size12W500Hint),
+                Text(user.name!, style: size12W400Hint),
               ],
             ),
           ),

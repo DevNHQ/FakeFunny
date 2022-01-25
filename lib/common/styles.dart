@@ -12,9 +12,10 @@ const w600 = FontWeight.w600;
 const w700 = FontWeight.w700;
 const w800 = FontWeight.w800;
 const w900 = FontWeight.w900;
-const baseAppColor = Color(0xFFF50707);
+const baseAppColor = Color(0xFF000000);
 const defaultColor = Color(0xFF000000);
-const hintColor = Color(0xFFBFBFBF);
+const hintColor = Color(0xFF757778);
+const lightGrey = Color(0xFFEBEBEB);
 const whiteColor = Color(0xFFFFFFFF);
 const backgroundColor = Color(0xFFFFFFFF);
 const appbarColor = Color(0xFFFFFFFF);
@@ -140,12 +141,12 @@ var size14W500White = GoogleFonts.getFont(
   ),
 );
 //           Hint Text           //
-var size12W500Hint = GoogleFonts.getFont(
+var size12W400Hint = GoogleFonts.getFont(
   font,
   textStyle: const TextStyle(
     color: hintColor,
     fontSize: 12,
-    fontWeight: w500,
+    fontWeight: w400,
   ),
 );
 var size10W400Hint = GoogleFonts.getFont(

@@ -24,7 +24,7 @@ const Map<String, String> vi = {
   'followers' : 'Followers',
   'following' : 'Đang Follow',
   'totalLike' : 'Tổng lượt thích',
-  'editProfile' : 'Chỉnh sửa hồ sơ',
+  'editProfile' : 'Sửa hồ sơ',
   'deleteProfile' : 'Xoá hồ sơ',
 
 };

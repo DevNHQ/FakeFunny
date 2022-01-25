@@ -14,6 +14,7 @@ class ProfilePage extends GetView<ProfileController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: whiteColor,
         body:  NestedScrollView(
           // controller: scrollController,
             physics: const ScrollPhysics(parent: PageScrollPhysics()),
@@ -26,26 +27,26 @@ class ProfilePage extends GetView<ProfileController> {
                     backgroundColor: Colors.white,
                     forceElevated: value,
                     brightness: Brightness.light,
-                    elevation:2,
+                    elevation:1,
                     flexibleSpace: FlexibleSpaceBar(
                       background: GetBuilder<ProfileController>(builder: (controller) {
                           return Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              const SizedBox(height: 16.0),
+                              const SizedBox(height: 10.0),
                               ClipRRect(
                                 borderRadius: const BorderRadius.all(Radius.circular(100.0)),
                                 child: controller.user.avatarFile != null ? Image.memory(
                                   controller.user.avatarFile!,
                                   fit: BoxFit.cover,
-                                  width: 125.0,
-                                  height: 125.0,
+                                  width: 100.0,
+                                  height: 100.0,
                                 ) : Image.asset(
                                   'assets/images/placeholder.jpg',
                                   fit: BoxFit.cover,
-                                  width: 125.0,
-                                  height: 125.0,
+                                  width: 100.0,
+                                  height: 100.0,
                                 ),
                               ),
                               const SizedBox(height: 10.0),
@@ -64,32 +65,68 @@ class ProfilePage extends GetView<ProfileController> {
                                 ],
                               ),
                               const SizedBox(height: 20.0),
-                              InkWell(
-                                  onTap: () => Get.toNamed(AppRoutes.addAccount, arguments: controller.user),
-                                  child: Text(
-                                    editProfile.tr,
-                                    style: size12W500Default,
-                                  )
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  InkWell(
+                                    onTap: () => Get.toNamed(AppRoutes.addAccount, arguments: controller.user),
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      width: MediaQuery.of(context).size.width / 3,
+                                      height: 40.0,
+                                      decoration: BoxDecoration(
+                                        border: Border.all(color: lightGrey),
+                                        borderRadius: const BorderRadius.all(Radius.circular(5.0)),
+                                      ),
+                                      child: Text(
+                                        editProfile.tr,
+                                        style: size14W500Default,
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(width:5.0),
+                                  Container(
+                                    width: 35,
+                                    height: 40,
+                                    alignment: Alignment.center,
+                                    decoration: BoxDecoration(
+                                        border: Border.all(color: lightGrey),
+                                        borderRadius: const BorderRadius.all(Radius.circular(5.0)),
+                                    ),
+                                    child: Image.asset(
+                                      'assets/icons/bookmark.png',
+                                      width: 18,
+                                      height: 18,
+                                      fit: BoxFit.contain,
+                                      color: defaultColor,
+                                    ),
+                                  ),
+                                ],
                               ),
+                              const SizedBox(height: 16.0,),
+                              Text('bio', style: size14W500Default,),
+                              const SizedBox(height: 16.0,),
                             ],
                           );
                         },
                       ),
                     ),
                     centerTitle: true,
-                    expandedHeight: 330,
+                    expandedHeight: 366,
                     bottom: CustomTabBar(
                       color: Colors.white,
                       tabBar: TabBar(
                         onTap: (i) async{
                         },
-                        isScrollable: true,
+                        isScrollable: false,
                         tabs: controller.tabs,
-                        indicatorColor: Colors.black,
+                        indicatorColor: defaultColor,
                         controller: controller.tabController,
-                        unselectedLabelColor:Colors.grey,
-                        labelColor: Colors.black,
-                        indicatorSize: TabBarIndicatorSize.tab,
+                        unselectedLabelColor: hintColor,
+                        labelColor: Colors.red,
+                        indicatorSize: TabBarIndicatorSize.label,
+                        indicatorWeight: 2,
                         indicatorPadding: const EdgeInsets.only(left: 8,right: 8,bottom: 0),
                         labelPadding: const EdgeInsets.only(left: 8.0,right: 8,bottom: 0),
                         dragStartBehavior: DragStartBehavior.down,
@@ -111,9 +148,9 @@ class ProfilePage extends GetView<ProfileController> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(value,style: size14W500Default),
+        Text(value,style: size16W700Default),
         const SizedBox(height: 5.0),
-        Text(title,style: size12W500Hint),
+        Text(title,style: size12W400Hint),
       ],
     );
   }
