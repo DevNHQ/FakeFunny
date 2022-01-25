@@ -9,7 +9,7 @@ class CustomAppBar extends AppBar {
     Widget? widgetTitle,
     VoidCallback? onLeadingAction,
     List<Widget>? actions ,
-    double? elevation,
+    double? elevation = 0.0,
     PreferredSizeWidget? bottom,
     bool showBackIcon = true,
     bool automaticallyImplyLeading = true,

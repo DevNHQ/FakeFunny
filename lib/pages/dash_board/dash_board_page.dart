@@ -34,14 +34,7 @@ class _DashboardPageState extends State<DashboardPage> {
             widgetTitle: controller.profileTitle(),
             leadingIcon: controller.isCollapsed ? Icons.view_headline_outlined : Icons.clear_outlined,
             onLeadingAction: () => controller.switchAction(),
-            actions: [
-              CustomIcon(
-                  icon: Icons.add,
-                  alignment: Alignment.centerRight,
-                  onPressed: () => Get.toNamed(AppRoutes.postOptions),
-              ),
-              CustomIcon(icon: Icons.mark_email_unread_sharp),
-            ],
+            actions: controller.actionWidget(),
           ),
           body: Stack(
             children: [
@@ -92,11 +85,35 @@ class _DashboardPageState extends State<DashboardPage> {
                   controller.changeIndex(value);
                 },
                 items: [
-                  BottomNavigationBarItem(icon: controller.customIcon(index: 0,icon: Icons.home_outlined,showBadge: false, title: home.tr),title: const SizedBox()),
-                  BottomNavigationBarItem(icon: controller.customIcon(index: 1,icon: Icons.ad_units_rounded,showBadge: false,title: home.tr),title: const SizedBox()),
-                  BottomNavigationBarItem(icon: controller.customIcon(index: 2,icon: Icons.account_balance_rounded,showBadge: false, title:  home.tr),title: const SizedBox()),
-                  BottomNavigationBarItem(icon: controller.customIcon(index: 3,icon: Icons.add_alert,showBadge: true, title: home.tr),title: const SizedBox()),
-                ],
+                      BottomNavigationBarItem(
+                          icon: controller.customIcon(
+                              index: 0,
+                              icon: 'assets/icons/home.png',
+                              showBadge: false,
+                              title: home.tr),
+                          title: const SizedBox()),
+                      BottomNavigationBarItem(
+                          icon: controller.customIcon(
+                              index: 1,
+                              icon: 'assets/icons/discover.png',
+                              showBadge: false,
+                              title: home.tr),
+                          title: const SizedBox()),
+                      BottomNavigationBarItem(
+                          icon: controller.customIcon(
+                              index: 2,
+                              icon: 'assets/icons/notification.png',
+                              showBadge: false,
+                              title: home.tr),
+                          title: const SizedBox()),
+                      BottomNavigationBarItem(
+                          icon: controller.customIcon(
+                              index: 3,
+                              icon: 'assets/icons/user.png',
+                              showBadge: true,
+                              title: home.tr),
+                          title: const SizedBox()),
+                    ],
               )),
             ),
           )

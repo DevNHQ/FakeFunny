@@ -4,6 +4,7 @@ import 'package:fake_funny/common/styles.dart';
 import 'package:fake_funny/components/custom_icon.dart';
 import 'package:fake_funny/components/custom_image.dart';
 import 'package:fake_funny/components/custom_image_file.dart';
+import 'package:fake_funny/components/custom_image_icon.dart';
 import 'package:fake_funny/data/country.dart';
 import 'package:fake_funny/language/const.dart';
 import 'package:fake_funny/localization_service.dart';
@@ -49,6 +50,58 @@ class DashBoardController extends GetxController with GetTickerProviderStateMixi
   Future<void> onClose() async{
     controller.dispose();
     super.onClose();
+  }
+  List<Widget>? leadingWidget () {
+    switch (currentIndex.value) {
+      case 0:
+        return  [
+          CustomIcon(
+            icon: Icons.add,
+            alignment: Alignment.centerRight,
+            onPressed: () => Get.toNamed(AppRoutes.postOptions),
+          ),
+          CustomIcon(icon: Icons.mark_email_unread_sharp),
+        ];
+      case 1:
+      case 2:
+      case 3:
+        return  [
+          CustomImageIcon(
+            icon: 'assets/icons/live_event.png',
+            alignment: Alignment.centerRight,
+            onPressed: () => Get.toNamed(AppRoutes.postOptions),
+          ),
+          CustomImageIcon(icon: 'assets/icons/menu.png'),
+        ];
+      default:
+        return [];
+    }
+  }
+  List<Widget>? actionWidget () {
+    switch (currentIndex.value) {
+      case 0:
+        return  [
+          CustomIcon(
+            icon: Icons.add,
+            alignment: Alignment.centerRight,
+            onPressed: () => Get.toNamed(AppRoutes.postOptions),
+          ),
+          CustomIcon(icon: Icons.mark_email_unread_sharp),
+        ];
+      case 1:
+      case 2:
+      case 3:
+        return  [
+          CustomImageIcon(
+            icon: 'assets/icons/live_event.png',
+            alignment: Alignment.centerRight,
+            onPressed: () => Get.toNamed(AppRoutes.postOptions),
+          ),
+          CustomImageIcon(icon: 'assets/icons/menu.png'),
+        ];
+      default:
+        return [];
+    }
   }
   void initLanguage() async{
     String? lg =  await StorageManager.readData(Constants.language);
@@ -214,10 +267,12 @@ class DashBoardController extends GetxController with GetTickerProviderStateMixi
           //   ),
           // ) :  const SizedBox(height: 5.0),
           // const SizedBox(height: 4),
-          Icon(
+          Image.asset(
             icon,
-            color: index != currentIndex.value ? Colors.black : Colors.red,
-            size: index != currentIndex.value ? 20 : 24,
+            width: index != currentIndex.value ? 24 : 26,
+            height: index != currentIndex.value ? 24 : 26,
+            color: index != currentIndex.value ? hintColor : defaultColor,
+            fit: BoxFit.contain,
           ),
           // Image.asset(icon,color: index != currentIndex.value ? Colors.black : Colors.red),
           // Text(title),

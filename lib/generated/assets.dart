@@ -2,7 +2,23 @@
 class Assets {
   Assets._();
 
+  static const String iconsAddUser = 'assets/icons/add_user.png';
   static const String iconsArrowDown = 'assets/icons/arrow_down.png';
+  static const String iconsDiscover = 'assets/icons/discover.png';
+  static const String iconsFff = 'assets/icons/fff.png';
+  static const String iconsHeartLock = 'assets/icons/heart_lock.png';
+  static const String iconsHome = 'assets/icons/home.png';
+  static const String iconsLive = 'assets/icons/live.png';
+  static const String iconsLiveEvent = 'assets/icons/live_event.png';
+  static const String iconsLock = 'assets/icons/lock.png';
+  static const String iconsMenu = 'assets/icons/menu.png';
+  static const String iconsMessage = 'assets/icons/message.png';
+  static const String iconsMyPost = 'assets/icons/my_post.png';
+  static const String iconsNotification = 'assets/icons/notification.png';
+  static const String iconsPlay = 'assets/icons/play.png';
+  static const String iconsQrCode = 'assets/icons/qr_code.png';
+  static const String iconsSearch = 'assets/icons/search.png';
+  static const String iconsUser = 'assets/icons/user.png';
   static const String imagesEn = 'assets/images/en.jpg';
   static const String imagesPlaceholder = 'assets/images/placeholder.jpg';
   static const String imagesRocket = 'assets/images/rocket.png';
