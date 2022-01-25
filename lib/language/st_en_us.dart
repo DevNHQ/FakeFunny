@@ -26,4 +26,6 @@ const Map<String, String> en = {
   'totalLike' : 'Total Likes',
   'editProfile' : 'Edit Profile',
   'deleteProfile': 'Delete Profile',
+  'discover': 'Discover',
+  'inbox': 'Delete Profile',
 };

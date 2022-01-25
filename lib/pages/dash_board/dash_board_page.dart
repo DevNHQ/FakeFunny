@@ -35,6 +35,7 @@ class _DashboardPageState extends State<DashboardPage> {
             leadingIcon: controller.leadingIcon(),
             onLeadingAction: () => controller.switchAction(),
             actions: controller.actionWidget(),
+            showBackIcon: controller.currentIndex.value == 2 ? false : true,
           ),
           body: Stack(
             children: [
@@ -78,8 +79,6 @@ class _DashboardPageState extends State<DashboardPage> {
                 currentIndex: controller.currentIndex.value,
                 selectedItemColor: Colors.black,
                 unselectedItemColor: Colors.red,
-                // selectedLabelStyle: textBottomActive,
-                // unselectedLabelStyle: textBottomDefault,
                 backgroundColor: Colors.white,
                 onTap: (value) async{
                   controller.changeIndex(value);
@@ -97,21 +96,28 @@ class _DashboardPageState extends State<DashboardPage> {
                               index: 1,
                               icon: 'assets/icons/discover.png',
                               showBadge: false,
-                              title: home.tr),
+                              title: discover.tr),
                           title: const SizedBox()),
                       BottomNavigationBarItem(
-                          icon: controller.customIcon(
-                              index: 2,
-                              icon: 'assets/icons/notification.png',
-                              showBadge: false,
-                              title: home.tr),
-                          title: const SizedBox()),
+                      icon: controller.customIcon(
+                          index: 2,
+                          icon: 'assets/icons/tt_add.png',
+                          showBadge: false,
+                          title: discover.tr),
+                      title: const SizedBox()),
                       BottomNavigationBarItem(
                           icon: controller.customIcon(
                               index: 3,
+                              icon: 'assets/icons/notification.png',
+                              showBadge: false,
+                              title: inbox.tr),
+                          title: const SizedBox()),
+                      BottomNavigationBarItem(
+                          icon: controller.customIcon(
+                              index: 4,
                               icon: 'assets/icons/user.png',
                               showBadge: true,
-                              title: home.tr),
+                              title: profile.tr),
                           title: const SizedBox()),
                     ],
               )),

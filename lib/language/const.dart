@@ -24,4 +24,6 @@ const String followers = 'followers';
 const String following = 'following';
 const String totalLike = 'totalLike';
 const String editProfile = 'editProfile';
-const String deleteProfile = 'Delete Profile';
+const String deleteProfile = 'deleteProfile';
+const String discover = 'discover';
+const String inbox = 'inbox';

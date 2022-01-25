@@ -14,7 +14,7 @@ const Map<String, String> vi = {
   'multipleLanguage' : 'Đa ngôn ngữ',
   'cancel' : 'Hủy bỏ',
   'notice' : 'Thông báo',
-  'profile' : 'Trang cá nhân',
+  'profile' : 'Hồ sơ',
   'addAccount' : 'Thêm tài khoản',
   'switchAcc' : 'Chuyển đổi tài khoản',
   'name' : 'Họ tên',
@@ -26,5 +26,6 @@ const Map<String, String> vi = {
   'totalLike' : 'Tổng lượt thích',
   'editProfile' : 'Sửa hồ sơ',
   'deleteProfile' : 'Xoá hồ sơ',
-
+  'discover': 'Khám phá',
+  'inbox': 'Hộp thư',
 };

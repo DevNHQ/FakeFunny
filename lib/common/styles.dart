@@ -149,6 +149,14 @@ var size12W400Hint = GoogleFonts.getFont(
     fontWeight: w400,
   ),
 );
+var size11W500Hint = GoogleFonts.getFont(
+  font,
+  textStyle: const TextStyle(
+    color: hintColor,
+    fontSize: 12,
+    fontWeight: w500,
+  ),
+);
 var size10W400Hint = GoogleFonts.getFont(
   font,
   textStyle: const TextStyle(

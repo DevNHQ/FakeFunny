@@ -29,6 +29,7 @@ class DashBoardController extends GetxController with GetTickerProviderStateMixi
     const HomePage(),
     const HomePage(),
     const HomePage(),
+    const HomePage(),
     const ProfilePage(),
   ];
   bool isCollapsed = true;
@@ -51,39 +52,14 @@ class DashBoardController extends GetxController with GetTickerProviderStateMixi
     controller.dispose();
     super.onClose();
   }
-  List<Widget>? leadingWidget () {
-    switch (currentIndex.value) {
-      case 0:
-        return  [
-          CustomIcon(
-            icon: Icons.add,
-            alignment: Alignment.centerRight,
-            onPressed: () => Get.toNamed(AppRoutes.postOptions),
-          ),
-          CustomIcon(icon: Icons.mark_email_unread_sharp),
-        ];
-      case 1:
-      case 2:
-      case 3:
-        return  [
-          CustomImageIcon(
-            icon: 'assets/icons/live_event.png',
-            alignment: Alignment.centerRight,
-            onPressed: () => Get.toNamed(AppRoutes.postOptions),
-          ),
-          CustomImageIcon(icon: 'assets/icons/menu.png'),
-        ];
-      default:
-        return [];
-    }
-  }
   String? leadingIcon () {
     switch (currentIndex.value) {
       case 0:
       case 1:
       case 2:
-        return null;
       case 3:
+        return null;
+      case 4:
         return  'assets/icons/add_user.png';
       default:
         return null;
@@ -103,6 +79,7 @@ class DashBoardController extends GetxController with GetTickerProviderStateMixi
       case 1:
       case 2:
       case 3:
+      case 4:
         return  [
           CustomImageIcon(
             icon: 'assets/icons/live_event.png',
@@ -177,7 +154,7 @@ class DashBoardController extends GetxController with GetTickerProviderStateMixi
     }
   }
   Widget? profileTitle() {
-    if(currentIndex.value == 3) {
+    if(currentIndex.value == 4) {
       return  InkWell(
         onTap: () => Get.bottomSheet(
             Container(
@@ -268,7 +245,7 @@ class DashBoardController extends GetxController with GetTickerProviderStateMixi
       height: 50,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           // showBadge ? Container(
           //   width: 6.0,
@@ -281,13 +258,14 @@ class DashBoardController extends GetxController with GetTickerProviderStateMixi
           // const SizedBox(height: 4),
           Image.asset(
             icon,
-            width: index != currentIndex.value ? 24 : 26,
-            height: index != currentIndex.value ? 24 : 26,
-            color: index != currentIndex.value ? hintColor : defaultColor,
+            width: index != 2 ? 24 : 45,
+            height: index != 2 ? 24 : 45,
+            color: index != 2 ? (index != currentIndex.value ? hintColor : defaultColor) : null,
             fit: BoxFit.contain,
           ),
+          const SizedBox(height: 2.0),
           // Image.asset(icon,color: index != currentIndex.value ? Colors.black : Colors.red),
-          // Text(title),
+          index != 2 ? Text(title, style: index != currentIndex.value ? size11W500Hint : size11W500Default) : const SizedBox(),
         ],
       ),
     );

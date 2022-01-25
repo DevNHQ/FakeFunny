@@ -20,6 +20,7 @@ class Assets {
   static const String iconsPlay = 'assets/icons/play.png';
   static const String iconsQrCode = 'assets/icons/qr_code.png';
   static const String iconsSearch = 'assets/icons/search.png';
+  static const String iconsTtAdd = 'assets/icons/tt_add.png';
   static const String iconsUser = 'assets/icons/user.png';
   static const String imagesEn = 'assets/images/en.jpg';
   static const String imagesPlaceholder = 'assets/images/placeholder.jpg';
