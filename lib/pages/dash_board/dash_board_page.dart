@@ -6,6 +6,7 @@ import 'package:fake_funny/language/const.dart';
 import 'package:fake_funny/pages/dash_board/dash_board_controller.dart';
 import 'package:fake_funny/routes/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import '../../localization_service.dart';
 
@@ -29,14 +30,14 @@ class _DashboardPageState extends State<DashboardPage> {
     return GetBuilder<DashBoardController>(builder: (controller)  {
       return Scaffold(
           resizeToAvoidBottomInset: false,
-          appBar: CustomAppBar(
+          appBar: controller.currentIndex.value !=0 ? CustomAppBar(
             title: controller.appbarTitle(),
             widgetTitle: controller.profileTitle(),
             leadingIcon: controller.leadingIcon(),
             onLeadingAction: () => controller.switchAction(),
             actions: controller.actionWidget(),
             showBackIcon: controller.currentIndex.value == 2 ? false : true,
-          ),
+          ) : null,
           body: Stack(
             children: [
               menu(context, controller),

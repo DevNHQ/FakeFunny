@@ -16,7 +16,7 @@ class CustomInput extends StatelessWidget {
     Key? key,
     this.controller,
     this.errMessage,
-    this.textInputType = TextInputType.none,
+    this.textInputType = TextInputType.multiline,
     this.title,
     this.maxLines = 1,
     this.width,

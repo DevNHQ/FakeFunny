@@ -56,11 +56,11 @@ class ProfilePage extends GetView<ProfileController> {
                                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                                 children: [
                                   const SizedBox(width: 16.0),
-                                  customBox(title: following.tr ,value: parserCount(value: controller.user.totalLike)),
+                                  customBox(title: following.tr ,value: parserCount(value: controller.user.following)),
                                   Text("|",style:  size10W400Hint),
                                   customBox(title: followers.tr ,value: parserCount(value: controller.user.follower)),
                                   Text("|",style: size10W400Hint),
-                                  customBox(title: like.tr ,value: parserCount(value: controller.user.following)),
+                                  customBox(title: like.tr ,value: parserCount(value: controller.user.totalLike)),
                                   const SizedBox(width: 16.0),
                                 ],
                               ),
