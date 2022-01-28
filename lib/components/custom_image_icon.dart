@@ -31,6 +31,7 @@ class CustomImageIcon extends StatelessWidget {
             color: iconColor ?? defaultColor,
             width: 24.0,
             height: 24.0,
+            fit: BoxFit.contain,
         ),
       ),
     );

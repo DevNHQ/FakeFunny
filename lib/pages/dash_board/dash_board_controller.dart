@@ -12,6 +12,7 @@ import 'package:fake_funny/model/m_country.dart';
 import 'package:fake_funny/model/m_left_menu.dart';
 import 'package:fake_funny/model/user.dart';
 import 'package:fake_funny/pages/home/home_page.dart';
+import 'package:fake_funny/pages/post_video/post_video_page.dart';
 import 'package:fake_funny/pages/profile/profile_controller.dart';
 import 'package:fake_funny/pages/profile/profile_page.dart';
 import 'package:fake_funny/routes/app_routes.dart';
@@ -104,7 +105,11 @@ class DashBoardController extends GetxController with GetTickerProviderStateMixi
     update();
   }
   void changeIndex(value){
-    currentIndex.value = value;
+    if (value != 2) {
+      currentIndex.value = value;
+    } else {
+      Get.toNamed(AppRoutes.postVideo);
+    }
     update();
   }
   void actionMenu({index, screen}) {
@@ -240,6 +245,28 @@ class DashBoardController extends GetxController with GetTickerProviderStateMixi
       return null;
     }
   }
+  colorBottom({index}) {
+    if(currentIndex.value != 2) {
+      switch (currentIndex.value) {
+        case 0:
+          if (index == currentIndex.value ) {
+            return whiteColor;
+          }
+          break;
+        case 1:
+        case 3:
+        case 4:
+          if (index == currentIndex.value) {
+            return defaultColor;
+          }
+          break;
+        default:
+          return null;
+      }
+    } else {
+      return null;
+    }
+  }
   Widget customIcon({index, icon,showBadge,title}) {
     return SizedBox(
       height: 50,
@@ -260,12 +287,11 @@ class DashBoardController extends GetxController with GetTickerProviderStateMixi
             icon,
             width: index != 2 ? 24 : 45,
             height: index != 2 ? 24 : 45,
-            color: index != 2 ? (index != currentIndex.value ? hintColor : defaultColor) : null,
             fit: BoxFit.contain,
           ),
           const SizedBox(height: 2.0),
           // Image.asset(icon,color: index != currentIndex.value ? Colors.black : Colors.red),
-          index != 2 ? Text(title, style: index != currentIndex.value ? size11W500Hint : size11W500Default) : const SizedBox(),
+          index != 2 ? Text(title, style: index != currentIndex.value ? size11W500Hint : (index == currentIndex.value && index == 0 ? size11W500White: size11W500Default)) : const SizedBox(),
         ],
       ),
     );

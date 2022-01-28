@@ -3,8 +3,10 @@ import 'package:fake_funny/pages/dash_board/dash_board_page.dart';
 import 'package:fake_funny/pages/language/language_binding.dart';
 import 'package:fake_funny/pages/language/language_page.dart';
 import 'package:fake_funny/pages/post_options/post_status_page.dart';
-import 'package:fake_funny/pages/post_video/add_account_binding.dart';
-import 'package:fake_funny/pages/post_video/add_account_page.dart';
+import 'package:fake_funny/pages/add_account/add_account_binding.dart';
+import 'package:fake_funny/pages/add_account/add_account_page.dart';
+import 'package:fake_funny/pages/post_video/post_video_binding.dart';
+import 'package:fake_funny/pages/post_video/post_video_page.dart';
 import 'package:fake_funny/pages/profile/profile_page.dart';
 import 'package:fake_funny/pages/splash/splash_binding.dart';
 import 'package:fake_funny/pages/splash/splash_page.dart';
@@ -12,7 +14,7 @@ import 'package:fake_funny/routes/app_routes.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
 class AppPages {
-  static const duration = 1000;
+  static const duration = 500;
   static var pages = [
     GetPage(
         name: AppRoutes.splash,
@@ -54,6 +56,13 @@ class AppPages {
       page: () => const PostOptionsPage(),
       transition: Transition.topLevel,
       transitionDuration: const  Duration(milliseconds: duration),
+    ),
+    GetPage(
+      name: AppRoutes.postVideo,
+      page: () => const PostVideoPage(),
+      binding: PostVideoBinding(),
+      transition: Transition.downToUp,
+      transitionDuration: const  Duration(milliseconds: 350),
     ),
   ];
 }

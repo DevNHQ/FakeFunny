@@ -78,10 +78,10 @@ class AddAccountController extends GetxController {
         user?.totalLike = value;
         break;
       case 3:
-        user?.follower = value;
+        user?.following = value;
         break;
       case 4:
-        user?.following = value;
+        user?.follower = value;
         break;
     }
     update();

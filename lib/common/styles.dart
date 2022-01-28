@@ -124,12 +124,36 @@ var size11W500White = GoogleFonts.getFont(
     fontWeight: w500,
   ),
 );
+var size11W400White = GoogleFonts.getFont(
+  font,
+  textStyle: const TextStyle(
+    color: whiteColor,
+    fontSize: 11,
+    fontWeight: w400,
+  ),
+);
 var size12W500White = GoogleFonts.getFont(
   font,
   textStyle: const TextStyle(
     color: whiteColor,
     fontSize: 12,
     fontWeight: w500,
+  ),
+);
+var size12W700White = GoogleFonts.getFont(
+  font,
+  textStyle: const TextStyle(
+    color: whiteColor,
+    fontSize: 12,
+    fontWeight: w700,
+  ),
+);
+var size12W400White = GoogleFonts.getFont(
+  font,
+  textStyle: const TextStyle(
+    color: whiteColor,
+    fontSize: 12,
+    fontWeight: w400,
   ),
 );
 var size14W500White = GoogleFonts.getFont(
@@ -146,6 +170,14 @@ var size16W500White = GoogleFonts.getFont(
     color: whiteColor,
     fontSize: 16,
     fontWeight: w500,
+  ),
+);
+var size16W700White = GoogleFonts.getFont(
+  font,
+  textStyle: const TextStyle(
+    color: whiteColor,
+    fontSize: 16,
+    fontWeight: w700,
   ),
 );
 //           Hint Text           //
@@ -171,5 +203,21 @@ var size10W400Hint = GoogleFonts.getFont(
     color: hintColor,
     fontSize: 10,
     fontWeight: w400,
+  ),
+);
+var size10W400White = GoogleFonts.getFont(
+  font,
+  textStyle: const TextStyle(
+    color: whiteColor,
+    fontSize: 10,
+    fontWeight: w400,
+  ),
+);
+var size14W500Hint = GoogleFonts.getFont(
+  font,
+  textStyle: const TextStyle(
+    color: hintColor,
+    fontSize: 14,
+    fontWeight: w500,
   ),
 );

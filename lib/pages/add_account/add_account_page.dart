@@ -5,7 +5,7 @@ import 'package:fake_funny/components/custom_appbar.dart';
 import 'package:fake_funny/components/custom_button.dart';
 import 'package:fake_funny/components/custom_input.dart';
 import 'package:fake_funny/language/const.dart';
-import 'package:fake_funny/pages/post_status/add_account_controller.dart';
+import 'package:fake_funny/pages/add_account/add_account_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 class AddAccountPage extends StatelessWidget {

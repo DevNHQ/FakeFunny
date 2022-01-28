@@ -28,4 +28,5 @@ const Map<String, String> en = {
   'deleteProfile': 'Delete Profile',
   'discover': 'Discover',
   'inbox': 'Delete Profile',
+  'forYou': 'For You',
 };

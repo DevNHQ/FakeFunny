@@ -30,7 +30,7 @@ class _DashboardPageState extends State<DashboardPage> {
     return GetBuilder<DashBoardController>(builder: (controller)  {
       return Scaffold(
           resizeToAvoidBottomInset: false,
-          appBar: controller.currentIndex.value !=0 ? CustomAppBar(
+          appBar: controller.currentIndex.value != 0 && controller.currentIndex.value != 2 ? CustomAppBar(
             title: controller.appbarTitle(),
             widgetTitle: controller.profileTitle(),
             leadingIcon: controller.leadingIcon(),
@@ -72,15 +72,14 @@ class _DashboardPageState extends State<DashboardPage> {
                 splashColor: Colors.transparent,
                 highlightColor: Colors.transparent
             ),
-            child: Container(
+            child: SizedBox(
               height: MediaQuery.of(context).padding.bottom + 65.0,
-              color: Colors.white,
               child: Obx(()=> BottomNavigationBar(
                 type: BottomNavigationBarType.fixed,
                 currentIndex: controller.currentIndex.value,
                 selectedItemColor: Colors.black,
                 unselectedItemColor: Colors.red,
-                backgroundColor: Colors.white,
+                backgroundColor: controller.currentIndex.value == 0 ? Colors.black : whiteColor,
                 onTap: (value) async{
                   controller.changeIndex(value);
                 },
@@ -88,35 +87,35 @@ class _DashboardPageState extends State<DashboardPage> {
                       BottomNavigationBarItem(
                           icon: controller.customIcon(
                               index: 0,
-                              icon: 'assets/icons/home.png',
+                              icon: controller.currentIndex.value != 0 ? 'assets/icons/home.png' : 'assets/icons/home_active.png',
                               showBadge: false,
                               title: home.tr),
                           title: const SizedBox()),
                       BottomNavigationBarItem(
                           icon: controller.customIcon(
                               index: 1,
-                              icon: 'assets/icons/discover.png',
+                              icon: controller.currentIndex.value == 1 ? 'assets/icons/discover_active.png' : 'assets/icons/discover.png' ,
                               showBadge: false,
                               title: discover.tr),
                           title: const SizedBox()),
                       BottomNavigationBarItem(
                       icon: controller.customIcon(
                           index: 2,
-                          icon: 'assets/icons/tt_add.png',
+                          icon: controller.currentIndex.value == 0 ? 'assets/icons/tt_add_active.png' : 'assets/icons/tt_add.png',
                           showBadge: false,
                           title: discover.tr),
                       title: const SizedBox()),
                       BottomNavigationBarItem(
                           icon: controller.customIcon(
                               index: 3,
-                              icon: 'assets/icons/notification.png',
+                              icon: controller.currentIndex.value == 3 ? 'assets/icons/message_active.png' : 'assets/icons/notification.png',
                               showBadge: false,
                               title: inbox.tr),
                           title: const SizedBox()),
                       BottomNavigationBarItem(
                           icon: controller.customIcon(
                               index: 4,
-                              icon: 'assets/icons/user.png',
+                              icon: controller.currentIndex.value == 4 ? 'assets/icons/user_active.png' : 'assets/icons/user.png',
                               showBadge: true,
                               title: profile.tr),
                           title: const SizedBox()),

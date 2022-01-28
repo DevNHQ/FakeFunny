@@ -28,4 +28,5 @@ const Map<String, String> vi = {
   'deleteProfile' : 'Xoá hồ sơ',
   'discover': 'Khám phá',
   'inbox': 'Hộp thư',
+  'forYou': 'Dành cho bạn',
 };

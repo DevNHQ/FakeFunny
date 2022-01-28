@@ -27,3 +27,4 @@ const String editProfile = 'editProfile';
 const String deleteProfile = 'deleteProfile';
 const String discover = 'discover';
 const String inbox = 'inbox';
+const String forYou = 'forYou';
