@@ -29,4 +29,6 @@ const Map<String, String> vi = {
   'discover': 'Khám phá',
   'inbox': 'Hộp thư',
   'forYou': 'Dành cho bạn',
+  'chooseVideo': 'Chọn Video',
+  'status': 'Trạng thái',
 };

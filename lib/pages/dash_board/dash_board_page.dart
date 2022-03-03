@@ -28,51 +28,51 @@ class _DashboardPageState extends State<DashboardPage> {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     return GetBuilder<DashBoardController>(builder: (controller)  {
-      return Scaffold(
-          resizeToAvoidBottomInset: false,
-          appBar: controller.currentIndex.value != 0 && controller.currentIndex.value != 2 ? CustomAppBar(
-            title: controller.appbarTitle(),
-            widgetTitle: controller.profileTitle(),
-            leadingIcon: controller.leadingIcon(),
-            onLeadingAction: () => controller.switchAction(),
-            actions: controller.actionWidget(),
-            showBackIcon: controller.currentIndex.value == 2 ? false : true,
-          ) : null,
-          body: Stack(
-            children: [
-              menu(context, controller),
-              AnimatedPositioned(
-                duration: controller.duration,
-                top: 0,
-                bottom: 0,
-                curve: Curves.fastLinearToSlowEaseIn,
-                left: controller.isCollapsed ? 0 : 0.6 * screenWidth,
-                right: controller.isCollapsed ? 0 : -0.2 * screenWidth,
-                child: ScaleTransition(
-                  scale: controller.scaleAnimation,
-                  child: Material(
-                    animationDuration: controller.duration,
-                    type: MaterialType.card,
-                    elevation: 7,
-                    borderRadius: BorderRadius.all(Radius.circular(!controller.isCollapsed ? 16.0 : 0.0)),
-                    child: ClipRRect(
-                      borderRadius:  BorderRadius.all(Radius.circular(!controller.isCollapsed ? 16.0 : 0.0)),
-                      child: IndexedStack(
-                        index: controller.currentIndex.value,
-                        children: controller.dashBoardWidgets!,
+      return Theme(
+        data: ThemeData(
+            splashColor: Colors.transparent,
+            highlightColor: Colors.transparent
+        ),
+        child: Scaffold(
+            resizeToAvoidBottomInset: false,
+            appBar: controller.currentIndex.value != 0 && controller.currentIndex.value != 2 ? CustomAppBar(
+              title: controller.appbarTitle(),
+              widgetTitle: controller.profileTitle(),
+              leadingIcon: controller.leadingIcon(),
+              onLeadingAction: () => controller.switchAction(),
+              actions: controller.actionWidget(),
+              showBackIcon: controller.currentIndex.value == 2 ? false : true,
+            ) : null,
+            body: Stack(
+              children: [
+                menu(context, controller),
+                AnimatedPositioned(
+                  duration: controller.duration,
+                  top: 0,
+                  bottom: 0,
+                  curve: Curves.fastLinearToSlowEaseIn,
+                  left: controller.isCollapsed ? 0 : 0.6 * screenWidth,
+                  right: controller.isCollapsed ? 0 : -0.2 * screenWidth,
+                  child: ScaleTransition(
+                    scale: controller.scaleAnimation,
+                    child: Material(
+                      animationDuration: controller.duration,
+                      type: MaterialType.card,
+                      elevation: 7,
+                      borderRadius: BorderRadius.all(Radius.circular(!controller.isCollapsed ? 16.0 : 0.0)),
+                      child: ClipRRect(
+                        borderRadius:  BorderRadius.all(Radius.circular(!controller.isCollapsed ? 16.0 : 0.0)),
+                        child: IndexedStack(
+                          index: controller.currentIndex.value,
+                          children: controller.dashBoardWidgets!,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            ],
-          ),
-          bottomNavigationBar:Theme(
-            data: ThemeData(
-                splashColor: Colors.transparent,
-                highlightColor: Colors.transparent
+              ],
             ),
-            child: SizedBox(
+            bottomNavigationBar: SizedBox(
               height: MediaQuery.of(context).padding.bottom + 65.0,
               child: Obx(()=> BottomNavigationBar(
                 type: BottomNavigationBarType.fixed,
@@ -84,45 +84,45 @@ class _DashboardPageState extends State<DashboardPage> {
                   controller.changeIndex(value);
                 },
                 items: [
-                      BottomNavigationBarItem(
-                          icon: controller.customIcon(
-                              index: 0,
-                              icon: controller.currentIndex.value != 0 ? 'assets/icons/home.png' : 'assets/icons/home_active.png',
-                              showBadge: false,
-                              title: home.tr),
-                          title: const SizedBox()),
-                      BottomNavigationBarItem(
-                          icon: controller.customIcon(
-                              index: 1,
-                              icon: controller.currentIndex.value == 1 ? 'assets/icons/discover_active.png' : 'assets/icons/discover.png' ,
-                              showBadge: false,
-                              title: discover.tr),
-                          title: const SizedBox()),
-                      BottomNavigationBarItem(
+                  BottomNavigationBarItem(
+                      icon: controller.customIcon(
+                          index: 0,
+                          icon: controller.currentIndex.value != 0 ? 'assets/icons/home.png' : 'assets/icons/home_active.png',
+                          showBadge: false,
+                          title: home.tr),
+                      title: const SizedBox()),
+                  BottomNavigationBarItem(
+                      icon: controller.customIcon(
+                          index: 1,
+                          icon: controller.currentIndex.value == 1 ? 'assets/icons/discover_active.png' : 'assets/icons/discover.png' ,
+                          showBadge: false,
+                          title: discover.tr),
+                      title: const SizedBox()),
+                  BottomNavigationBarItem(
                       icon: controller.customIcon(
                           index: 2,
                           icon: controller.currentIndex.value == 0 ? 'assets/icons/tt_add_active.png' : 'assets/icons/tt_add.png',
                           showBadge: false,
                           title: discover.tr),
                       title: const SizedBox()),
-                      BottomNavigationBarItem(
-                          icon: controller.customIcon(
-                              index: 3,
-                              icon: controller.currentIndex.value == 3 ? 'assets/icons/message_active.png' : 'assets/icons/notification.png',
-                              showBadge: false,
-                              title: inbox.tr),
-                          title: const SizedBox()),
-                      BottomNavigationBarItem(
-                          icon: controller.customIcon(
-                              index: 4,
-                              icon: controller.currentIndex.value == 4 ? 'assets/icons/user_active.png' : 'assets/icons/user.png',
-                              showBadge: true,
-                              title: profile.tr),
-                          title: const SizedBox()),
-                    ],
+                  BottomNavigationBarItem(
+                      icon: controller.customIcon(
+                          index: 3,
+                          icon: controller.currentIndex.value == 3 ? 'assets/icons/message_active.png' : 'assets/icons/notification.png',
+                          showBadge: false,
+                          title: inbox.tr),
+                      title: const SizedBox()),
+                  BottomNavigationBarItem(
+                      icon: controller.customIcon(
+                          index: 4,
+                          icon: controller.currentIndex.value == 4 ? 'assets/icons/user_active.png' : 'assets/icons/user.png',
+                          showBadge: true,
+                          title: profile.tr),
+                      title: const SizedBox()),
+                ],
               )),
             ),
-          )
+        ),
       );
     });
   }

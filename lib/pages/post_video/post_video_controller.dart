@@ -1,46 +1,63 @@
 import 'dart:io';
+import 'dart:typed_data';
 
+import 'package:fake_funny/common/utils.dart';
+import 'package:fake_funny/model/post.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:video_player/video_player.dart';
 
 class PostVideoController extends GetxController {
-  late VideoPlayerController videoPlayerController;
   final ImagePicker picker = ImagePicker();
-  File? choseVideo;
-  bool startedPlaying = false;
+  TextEditingController statusEditingController = TextEditingController(text: null);
+  TextEditingController nameEditingController = TextEditingController(text: null);
+  TextEditingController likeCountEditingController = TextEditingController(text: null);
+  TextEditingController shareCountEditingController = TextEditingController(text: null);
+  TextEditingController commentCountEditingController = TextEditingController(text: null);
+  TextEditingController tagsEditingController = TextEditingController(text: null);
+  TextEditingController musicEditingController = TextEditingController(text: null);
+  File? choseImage;
+  MPost? user  = MPost();
   @override
   Future<void> onInit() async{
     super.onInit();
   }
   @override
   Future<void> onClose() async{
-    videoPlayerController.dispose();
-    startedPlaying = false;
-    update();
     super.onClose();
   }
-  initVideo({value}) {
-    videoPlayerController = VideoPlayerController.file(value);
-    videoPlayerController.addListener(() {
-      if (startedPlaying && !videoPlayerController.value.isPlaying) {
-        Get.back();
-      }
-    });
-  }
-
-  Future<bool> started() async {
-    await videoPlayerController.initialize();
-    await videoPlayerController.play();
-    startedPlaying = true;
+  void addFormData({type, value}) {
+    switch (type) {
+      case 0:
+        user?.name = value;
+        break;
+      case 1:
+        user?.status = value;
+        break;
+      case 2:
+        user?.music = value;
+        break;
+      case 3:
+        user?.status = value;
+        break;
+      case 4:
+        user?.commentCount = value;
+        break;
+      case 5:
+        user?.likesCount = value;
+        break;
+      case 6:
+        user?.sharesCount = value;
+        break;
+    }
     update();
-    return true;
   }
-  void getVideo() async{
-    final XFile? image = await picker.pickVideo(source: ImageSource.gallery);
-    choseVideo = File(image!.path);
-    update();
-    initVideo(value: choseVideo);
+  void getImage({type}) async{
+    final XFile? image = await picker.pickImage(source: type == 0 ? ImageSource.gallery : ImageSource.camera);
+    if(image != null) {
+      File tempImage = await resizeWidth(File(image.path));
+      user?.imageFile =  Uint8List.fromList(tempImage.readAsBytesSync());
+      update();
+    }
   }
 }

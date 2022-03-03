@@ -28,3 +28,5 @@ const String deleteProfile = 'deleteProfile';
 const String discover = 'discover';
 const String inbox = 'inbox';
 const String forYou = 'forYou';
+const String chooseVideo = 'chooseVideo';
+const String status = 'status';

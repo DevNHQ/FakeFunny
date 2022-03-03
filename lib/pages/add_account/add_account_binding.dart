@@ -6,5 +6,4 @@ class AddAccountBinding extends Bindings {
   void dependencies() {
     Get.lazyPut<AddAccountController>(() => AddAccountController());
   }
-  
 }

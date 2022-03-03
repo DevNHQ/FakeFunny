@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:fake_funny/common/styles.dart';
 import 'package:fake_funny/components/custom_appbar.dart';
 import 'package:fake_funny/components/custom_button.dart';

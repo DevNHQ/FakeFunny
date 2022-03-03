@@ -18,7 +18,6 @@ class AddAccountController extends GetxController {
   TextEditingController totalLikeEditingController = TextEditingController(text: null);
   TextEditingController followingEditingController = TextEditingController(text: null);
   TextEditingController followerEditingController = TextEditingController(text: null);
-  File? choseImage;
   MUser? user  = MUser();
   MUser? initUser = Get.arguments;
   @override
